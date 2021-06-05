@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Iron from '@hapi/iron';
 import { MAX_AGE, setTokenCookie, getTokenCookie } from './cookies';
+import type {MagicUserMetadata} from "@magic-sdk/types";
 
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
-export type Session = any; // TODO Define interface
+export type Session = MagicUserMetadata|undefined;
 
 export async function setLoginSession(res: NextApiResponse, session: Session) {
     const createdAt = Date.now();

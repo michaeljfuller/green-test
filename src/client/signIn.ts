@@ -1,10 +1,9 @@
 import { Magic } from 'magic-sdk';
-import type {LoginResponse} from "../../pages/api/auth/login";
+import type {LoginResponse, LoginRequestBody} from "../../pages/api/auth/login";
 
 /**
  * Log in the user with their email.
  * @throws {Error}
- * @TODO Plug In "remember"
  */
 export default async function signIn(email: string, remember: boolean): Promise<LoginResponse> {
     const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
@@ -15,7 +14,7 @@ export default async function signIn(email: string, remember: boolean): Promise<
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + token,
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, remember } as LoginRequestBody),
     });
     if (res.status === 200) {
         return res.json();
