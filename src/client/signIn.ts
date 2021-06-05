@@ -1,10 +1,12 @@
 import { Magic } from 'magic-sdk';
+import type {LoginResponse} from "../../pages/api/auth/login";
 
 /**
  * Log in the user with their email.
  * @throws {Error}
+ * @TODO Plug In "remember"
  */
-export default async function signIn(email: string, remember: boolean) { // TODO Plug in 'remember'
+export default async function signIn(email: string, remember: boolean): Promise<LoginResponse> {
     const magic = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
     const token = await magic.auth.loginWithMagicLink({ email });
     const res = await fetch('/api/auth/login', {
@@ -16,9 +18,7 @@ export default async function signIn(email: string, remember: boolean) { // TODO
         body: JSON.stringify({ email }),
     });
     if (res.status === 200) {
-        console.log('Logged In!');
-        console.log(await res.text());
-    } else {
-        throw new Error(await res.text());
+        return res.json();
     }
+    throw new Error(await res.text());
 }
