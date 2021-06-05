@@ -12,26 +12,23 @@
 }
 
 @mixin button {
-  color: $grey-dark;
+  color: white;
   font-weight: 600;
-  border: 1px solid $grey-faint;
+  border: 1px solid $green;
   border-radius: 6px;
   padding: 10px;
-  background-color: white;
+  background-color: $green;
 
-  &:disabled {
-    color: $grey;
-    border-color: $grey-light;
-    background-color: $grey-faint;
-  }
   &:hover {
-    border-color: $grey-light;
-    background-color: $grey-faint;
+    background-color: $green-light;
   }
   &:active {
-    border-color: $grey-light;
-    background-color: $grey-faint;
-    box-shadow: inset 2px 2px 4px 0 rgb(0, 0, 0, 0.05);
+    background-color: $green-dark;
+  }
+  &:disabled {
+    color: $grey;
+    border-color: $grey-faint;
+    background-color: white;
   }
 }
 
