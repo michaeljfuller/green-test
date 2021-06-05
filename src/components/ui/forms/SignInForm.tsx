@@ -13,8 +13,8 @@ export function SignInForm(props: SignInFormProps) {
     const [validEmail, setValidEmail] = useState(false);
 
     const handleInput: InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
-        setValidEmail(event.target.validity.valid);
-    }
+        setValidEmail(event.target.value && event.target.validity.valid);
+    };
     const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
         props.onSubmit(
