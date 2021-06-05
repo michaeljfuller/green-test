@@ -1,6 +1,6 @@
 import {PropsWithChildren, ReactElement} from "react";
-import {useUser} from "../../../hooks/useUser";
 import SignIn from "../../screens/SignIn";
+import useStoreSelector from "../../../hooks/useStoreSelector";
 
 export interface AuthenticationRequiredProps {
     unauthenticated?: ReactElement;
@@ -15,17 +15,17 @@ export function AuthenticationRequired({
     authenticating,
     unauthenticated,
 }: PropsWithChildren<AuthenticationRequiredProps>) {
-    const { user, error, finished } = useUser();
+    const userState = useStoreSelector((state) => state.user);
 
-    if (user) {
+    if (userState.current) {
         return <>{children}</>;
     }
-    if (finished) {
-        return <>
-            {unauthenticated || <SignIn />}
-            {error ? <p>{error.message}</p> : null}
-        </>;
+    if (userState.authenticating) {
+        return authenticating || <p>Authenticating...</p>;
     }
-    return authenticating || <p>Authenticating...</p>;
+    return <>
+        {unauthenticated || <SignIn />}
+        {userState.authError ? <p style={{color: 'red'}}>{userState.authError.message}</p> : null}
+    </>;
 }
 export default AuthenticationRequired;
