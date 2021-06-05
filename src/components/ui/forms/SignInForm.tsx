@@ -4,12 +4,16 @@ import {Checkbox} from "../element/Checkbox";
 
 export interface SignInFormProps {
     onSubmit: (email: string, rememberMe: boolean) => void;
+    disabled?: boolean;
 }
 
 /**
  * A form with the fields needed to sign in via email.
  */
-export function SignInForm(props: SignInFormProps) {
+export function SignInForm({
+    onSubmit,
+    disabled = false,
+}: SignInFormProps) {
     const [validEmail, setValidEmail] = useState(false);
 
     const handleInput: InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
@@ -17,7 +21,7 @@ export function SignInForm(props: SignInFormProps) {
     };
     const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
-        props.onSubmit(
+        onSubmit(
             (event.currentTarget.email as HTMLInputElement).value,
             (event.currentTarget.remember as HTMLInputElement).checked
         );
@@ -28,15 +32,15 @@ export function SignInForm(props: SignInFormProps) {
         <div className={css.email}>
             <label>
                 <span>Email Address</span>
-                <input name="email" type="email" onChange={handleInput} />
+                <input name="email" type="email" onChange={handleInput} disabled={disabled} />
             </label>
         </div>
 
         <div className={css.remember}>
-            <Checkbox label="Remember this device" name="remember" />
+            <Checkbox label="Remember this device" name="remember" disabled={disabled} />
         </div>
 
-        <button type="submit" className={css.submit} disabled={!validEmail}>Sign In</button>
+        <button type="submit" className={css.submit} disabled={disabled || !validEmail}>Sign In</button>
 
     </form>;
 }
