@@ -1,0 +1,10 @@
+@mixin heading-text {
+  color: #606060;
+  font-size: 1.7rem;
+}
+@mixin subheading-text {
+  color: #d0d0d0;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.5pt;
+}

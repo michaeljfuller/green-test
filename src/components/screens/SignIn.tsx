@@ -14,15 +14,15 @@ export function SignIn(props: SignInProps) {
         alert(`TODO: Sign in ${email}`);
     };
 
-    return <div className={css.root}>
+    return <section className={css.root}>
 
-        <Image src="/green.svg" alt="Green Logo" width={135} height={34} />
+        <Image src="/green.svg" alt="Green Logo" width={100} height={26} />
 
         <h1>Operations studio</h1>
         <p>Please enter your email below</p>
 
         <SignInForm onSubmit={handleSubmit} />
 
-    </div>;
+    </section>;
 }
 export default SignIn;
