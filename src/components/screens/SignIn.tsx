@@ -11,7 +11,7 @@ export interface SignInProps {
  */
 export function SignIn(props: SignInProps) {
     const handleSubmit: SignInFormProps['onSubmit'] = async (email, rememberMe) => {
-        alert(`TODO: Sign in ${email}`);
+        console.log(`TODO: Sign in ${email}`);
     };
 
     return <section className={css.root}>
