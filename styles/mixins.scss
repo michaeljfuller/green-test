@@ -14,7 +14,7 @@
 @mixin button {
   color: white;
   font-weight: 600;
-  border: 1px solid $green;
+  border: 2px solid $green;
   border-radius: 6px;
   padding: 10px;
   background-color: $green;
@@ -35,11 +35,12 @@
 @mixin label {
   color: $grey;
   font-weight: 500;
+  font-size: 0.9em;
 }
 
 @mixin input-text {
   background-color: white;
-  border: 1px solid $grey-faint;
+  border: 2px solid $grey-faint;
   border-radius: 0.3rem;
   padding: 0.5rem;
   &:valid { background-color: white; }
