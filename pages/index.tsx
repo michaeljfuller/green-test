@@ -13,7 +13,9 @@ export default function Home() {
             </Head>
 
             <main>
-                <Card>
+                <Card style={{
+                    minWidth: 400
+                }}>
                     <SignIn />
                 </Card>
             </main>

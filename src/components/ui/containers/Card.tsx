@@ -1,8 +1,9 @@
-import {PropsWithChildren} from "react";
+import {CSSProperties, PropsWithChildren} from "react";
 import css from "./Card.module.scss";
 
 export interface CardProps {
-    className?: string
+    className?: string;
+    style?: CSSProperties;
 }
 
 /**
@@ -11,7 +12,7 @@ export interface CardProps {
 export function Card(props: PropsWithChildren<CardProps>) {
     let className = css.root;
     if (props.className) className += " " + props.className;
-    return <div className={className}>
+    return <div className={className} style={props.style}>
         {props.children}
     </div>;
 }
