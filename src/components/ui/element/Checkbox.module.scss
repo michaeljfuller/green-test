@@ -1,14 +1,20 @@
+@use "sass:math";
 @import "/styles/colors";
 
 .root {
-    $size: 1.5em;
+    $size: 1.1rem;
+    $font-size: 0.7rem;
+    $border-width: 2px;
     $cursor: pointer;
 
     display: inline-flex;
     position: relative; // To anchor the absolute-positioned check
 
     span {
-        line-height: $size;
+        font-size: $font-size;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 0.5rem;
     }
 
     input {
@@ -19,7 +25,7 @@
         height: $size;
         width: $size;
 
-        border: 1px solid $grey-light;
+        border: $border-width solid $grey-faint;
         border-radius: 4px;
 
         &:checked {
@@ -30,11 +36,14 @@
                 // Tick character
                 content: '\2714';
                 color: white;
+                font-size: $font-size;
                 text-align: center;
                 font-style: italic;
                 // Position to .root
                 position: absolute;
-                left: 0.2em;
+                width: $size;
+                top: math.div($border-width, 2);
+                left: math.div($border-width, -2);
                 display: block;
                 cursor: $cursor;
             }
