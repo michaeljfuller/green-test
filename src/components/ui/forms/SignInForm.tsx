@@ -1,5 +1,6 @@
 import {FormEventHandler, InputHTMLAttributes, useState} from 'react';
 import css from './SignInForm.module.scss';
+import {Checkbox} from "../element/Checkbox";
 
 export interface SignInFormProps {
     onSubmit: (email: string, rememberMe: boolean) => void;
@@ -32,10 +33,7 @@ export function SignInForm(props: SignInFormProps) {
         </div>
 
         <div className={css.remember}>
-            <label>
-                <input name="remember" type="checkbox" />
-                <span>Remember this device</span>
-            </label>
+            <Checkbox label="Remember this device" name="remember" />
         </div>
 
         <button type="submit" className={css.submit} disabled={!validEmail}>Sign In</button>

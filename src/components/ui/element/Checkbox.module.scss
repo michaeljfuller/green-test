@@ -1,0 +1,43 @@
+@import "/styles/colors";
+
+.root {
+    $size: 1.5em;
+    $cursor: pointer;
+
+    display: inline-flex;
+    position: relative; // To anchor the absolute-positioned check
+
+    span {
+        line-height: $size;
+    }
+
+    input {
+        appearance: none;
+        cursor: $cursor;
+
+        margin: 0;
+        height: $size;
+        width: $size;
+
+        border: 1px solid $grey-light;
+        border-radius: 4px;
+
+        &:checked {
+            border-color: $blue;
+            background-color: $blue-light;
+
+            &::before { // Checkmark
+                // Tick character
+                content: '\2714';
+                color: white;
+                text-align: center;
+                font-style: italic;
+                // Position to .root
+                position: absolute;
+                left: 0.2em;
+                display: block;
+                cursor: $cursor;
+            }
+        }
+    }
+}
