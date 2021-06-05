@@ -1,5 +1,8 @@
 .root {
+  $box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+
+  padding: 20px;
   background-color: #fff;
-  border: 1px solid #eee;
-  padding: 10px;
 }
