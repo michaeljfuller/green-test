@@ -11,10 +11,12 @@ export default async function logout(req: NextApiRequest, res: NextApiResponse) 
             await magic.users.logoutByIssuer(session.issuer);
             removeTokenCookie(res);
         }
+        res.status(200).send({ success: true } as LogOutResponse);
     } catch (error) {
-        console.error(error);
+        res.status(error.status || 500).end(error.message);
     }
+}
 
-    res.writeHead(302, { Location: '/' });
-    res.end();
+export interface LogOutResponse {
+    success: boolean;
 }

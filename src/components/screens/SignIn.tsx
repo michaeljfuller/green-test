@@ -4,7 +4,7 @@ import SignInForm, {SignInFormProps} from "../ui/forms/SignInForm";
 import useStoreSelector from "../../hooks/useStoreSelector";
 import useStoreDispatch from "../../hooks/useStoreDispatch";
 import {setAuthError, setSigningIn, setUser} from '../../store/user';
-import {useSignIn} from "../../contexts/SignInContext";
+import {useAuthApis} from "../../contexts/AuthApiContext";
 
 export interface SignInProps {
 
@@ -16,7 +16,7 @@ export interface SignInProps {
 export function SignIn(props: SignInProps) {
     const signingIn = useStoreSelector((state) => state.user.signingIn);
     const dispatch = useStoreDispatch();
-    const signIn = useSignIn();
+    const {signIn} = useAuthApis();
 
     const handleSubmit: SignInFormProps['onSubmit'] = async (email, rememberMe) => {
         try {
