@@ -1,4 +1,4 @@
-import {FormEventHandler} from 'react';
+import {FormEventHandler, InputHTMLAttributes, useState} from 'react';
 import css from './SignInForm.module.scss';
 
 export interface SignInFormProps {
@@ -9,6 +9,11 @@ export interface SignInFormProps {
  * A form with the fields needed to sign in via email.
  */
 export function SignInForm(props: SignInFormProps) {
+    const [validEmail, setValidEmail] = useState(false);
+
+    const handleInput: InputHTMLAttributes<HTMLInputElement>['onChange'] = (event) => {
+        setValidEmail(event.target.validity.valid);
+    }
     const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
         props.onSubmit(
@@ -16,19 +21,24 @@ export function SignInForm(props: SignInFormProps) {
             (event.currentTarget.remember as HTMLInputElement).checked
         );
     };
+
     return <form onSubmit={handleSubmit} className={css.root}>
 
-        <label>
-            <span>Email Address</span>
-            <input name="email" type="email" />
-        </label>
+        <div className={css.email}>
+            <label>
+                <span>Email Address</span>
+                <input name="email" type="email" onChange={handleInput} />
+            </label>
+        </div>
 
-        <label>
-            <input name="remember" type="checkbox" />
-            <span>Remember this device</span>
-        </label>
+        <div className={css.remember}>
+            <label>
+                <input name="remember" type="checkbox" />
+                <span>Remember this device</span>
+            </label>
+        </div>
 
-        <button type="submit">Sign In</button>
+        <button type="submit" className={css.submit} disabled={!validEmail}>Sign In</button>
 
     </form>;
 }
