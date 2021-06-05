@@ -1,3 +1,5 @@
+@import 'styles/mixins';
+
 html,
 body {
   padding: 0;
@@ -14,4 +16,16 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  @include button;
+}
+
+label {
+  @include label;
+}
+
+input[type="text"], input[type="email"] {
+  @include input-text;
 }

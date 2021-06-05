@@ -1,10 +1,50 @@
+@import 'styles/colors';
+
 @mixin heading-text {
-  color: #606060;
+  color: $grey-dark;
   font-size: 1.7rem;
 }
 @mixin subheading-text {
-  color: #d0d0d0;
+  color: $grey-light;
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: -0.5pt;
+}
+
+@mixin button {
+  color: $grey-dark;
+  font-weight: 600;
+  border: 1px solid $grey-faint;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: white;
+
+  &:disabled {
+    color: $grey;
+    border-color: $grey-light;
+    background-color: $grey-faint;
+  }
+  &:hover {
+    border-color: $grey-light;
+    background-color: $grey-faint;
+  }
+  &:active {
+    border-color: $grey-light;
+    background-color: $grey-faint;
+    box-shadow: inset 2px 2px 4px 0 rgb(0, 0, 0, 0.05);
+  }
+}
+
+@mixin label {
+  color: $grey;
+  font-weight: 500;
+}
+
+@mixin input-text {
+  background-color: white;
+  border: 1px solid $grey-faint;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  &:valid { background-color: white; }
+  &:invalid:not(:focus) { background-color: $error-background; }
 }
