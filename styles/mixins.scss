@@ -1,0 +1,48 @@
+@import 'styles/colors';
+
+@mixin heading-text {
+  color: $grey-dark;
+  font-size: 1.7rem;
+}
+@mixin subheading-text {
+  color: $grey-light;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.5pt;
+}
+
+@mixin button {
+  color: white;
+  font-weight: 600;
+  border: 2px solid $green;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: $green;
+
+  &:hover {
+    background-color: $green-light;
+  }
+  &:active {
+    background-color: $green-dark;
+  }
+  &:disabled {
+    color: $grey;
+    border-color: $grey-faint;
+    background-color: white;
+  }
+}
+
+@mixin label {
+  color: $grey;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+@mixin input-text {
+  background-color: white;
+  border: 2px solid $grey-faint;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  &:valid { background-color: white; }
+  &:invalid:not(:focus) { background-color: $error-background; }
+}

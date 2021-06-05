@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import css from '../styles/Home.module.scss'
+import SignIn from "../src/components/screens/SignIn";
+import Card from "../src/components/ui/containers/Card";
 
 export default function Home() {
     return (
@@ -12,9 +13,11 @@ export default function Home() {
             </Head>
 
             <main>
-
-                <Image src="/green.svg" alt="Green Logo" width={135} height={34} />
-
+                <Card style={{
+                    minWidth: 400
+                }}>
+                    <SignIn />
+                </Card>
             </main>
         </div>
     );
