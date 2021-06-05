@@ -2,11 +2,9 @@ import Head from 'next/head'
 import css from '../styles/Home.module.scss'
 import Card from "../src/components/ui/containers/Card";
 import AuthenticationRequired from "../src/components/ui/containers/AuthenticationRequired";
-import useStoreSelector from "../src/hooks/useStoreSelector";
+import {Dashboard} from "../src/components/screens/Dashboard";
 
 export default function Home() {
-    const user = useStoreSelector((state) => state.user.current);
-
     return (
         <div className={css.root}>
             <Head>
@@ -18,7 +16,7 @@ export default function Home() {
             <main>
                 <Card style={{ minWidth: 400, minHeight: 375 }}>
                     <AuthenticationRequired>
-                        <p>Logged in as {user?.email}</p>
+                        <Dashboard />
                     </AuthenticationRequired>
                 </Card>
             </main>
