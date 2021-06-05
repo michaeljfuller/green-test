@@ -18,7 +18,7 @@ export function useUser(): UseUserResponse {
 
 export interface UseUserResponse {
     user: MagicUserMetadata|undefined;
-    error: any,
+    error: Error,
     finished: boolean,
     hasUser: boolean,
 }
