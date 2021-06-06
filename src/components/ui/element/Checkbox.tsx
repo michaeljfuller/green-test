@@ -1,14 +1,20 @@
+import type {InputHTMLAttributes} from "react";
 import css from "./Checkbox.module.scss";
 
-export interface CheckboxProps {
+type InputAttr = InputHTMLAttributes<HTMLInputElement>;
+
+export type CheckboxProps = Omit<InputAttr, 'type'|'value'|'defaultValue'> & {
     label: string;
-    name?: string;
-    className?: string;
 }
 
 export function Checkbox(props: CheckboxProps) {
-    return <label className={css.root+" "+(props.className || '')}>
-        <input type="checkbox" name={props.name} />
-        <span>{props.label}</span>
+    const {
+        label,
+        className,
+        ...checkboxProps
+    } = props;
+    return <label className={css.root+" "+(className || '')}>
+        <input {...checkboxProps} type="checkbox" />
+        <span>{label}</span>
     </label>;
 }
