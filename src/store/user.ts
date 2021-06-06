@@ -19,7 +19,6 @@ export const userSlice = createSlice({
     reducers: {
 
         setUser: (state, action: PayloadAction<MagicUserMetadata>) => {
-            console.log('setUser', { state, action });
             state.current = action.payload || undefined;
             state.signingIn = false;
             state.authenticating = false;
@@ -27,24 +26,20 @@ export const userSlice = createSlice({
         },
 
         removeUser: (state) => {
-            console.log('removeUser', { state });
             state.current = undefined;
         },
 
         setAuthenticating: (state, action: PayloadAction<boolean>) => {
-            console.log('setAuthenticating', { state, action });
             state.authenticating = action.payload;
             state.authError = undefined;
         },
 
         setSigningIn: (state, action: PayloadAction<boolean>) => {
-            console.log('setSigningIn', { state, action });
             state.signingIn = action.payload;
             state.authError = undefined;
         },
 
         setAuthError: (state, action: PayloadAction<Error>) => {
-            console.log('setAuthError', { state, action });
             state.authError = action.payload;
             state.signingIn = false;
             state.authenticating = false;

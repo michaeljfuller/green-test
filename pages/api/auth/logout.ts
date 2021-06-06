@@ -3,6 +3,7 @@ import { magic } from '../../../src/api/auth/magic-link';
 import { removeTokenCookie } from '../../../src/api/auth/cookies';
 import { getLoginSession } from '../../../src/api/auth/session';
 
+/** Log out the user and clear the cookie. */
 export default async function logout(req: NextApiRequest, res: NextApiResponse) {
     try {
         const session = await getLoginSession(req);

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import css from '../styles/Home.module.scss'
 import Card from "../src/components/ui/containers/Card";
 import AuthenticationRequired from "../src/components/ui/containers/AuthenticationRequired";
-import {Dashboard} from "../src/components/screens/Dashboard";
+import Dashboard from "../src/components/screens/Dashboard";
 
 export default function Home() {
     return (

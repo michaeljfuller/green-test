@@ -27,7 +27,7 @@ export function SignInForm({
         );
     };
 
-    return <form onSubmit={handleSubmit} className={css.root}>
+    return <form onSubmit={handleSubmit}>
 
         <div className={css.email}>
             <label>

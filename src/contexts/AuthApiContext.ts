@@ -11,7 +11,7 @@ export interface AuthApiGroup {
 }
 
 /**
- * A context to inject the signIn method into a component.
+ * A context to inject the auth methods into a component.
  * Using Contexts allows us to adhere to the dependency inversion principle.
  */
 export const AuthApiContext = createContext<AuthApiGroup>({

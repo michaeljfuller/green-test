@@ -6,9 +6,7 @@ import useStoreDispatch from "../../hooks/useStoreDispatch";
 import {setAuthError, setSigningIn, setUser} from '../../store/user';
 import {useAuthApis} from "../../contexts/AuthApiContext";
 
-export interface SignInProps {
-
-}
+export interface SignInProps {}
 
 /**
  * The SignIn screen that submits a sign-in request when the user has filled in the SignInForm.

@@ -4,9 +4,8 @@ import useStoreDispatch from "../../hooks/useStoreDispatch";
 import {useState} from "react";
 import {removeUser} from "../../store/user";
 
-export interface DashboardProps {
+export interface DashboardProps {}
 
-}
 export function Dashboard(props: DashboardProps) {
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
@@ -33,3 +32,4 @@ export function Dashboard(props: DashboardProps) {
         {error ? <p style={{color:'red'}}>{error}</p> : null}
     </div>;
 }
+export default Dashboard;
