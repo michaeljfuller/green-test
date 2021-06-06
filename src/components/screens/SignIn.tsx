@@ -30,7 +30,7 @@ export function SignIn(props: SignInProps) {
 
     return <section className={css.root}>
 
-        <Image src="/green.svg" alt="Green Logo" width={100} height={26} />
+        <Image src="/green.svg" alt="Green Logo" width={94} height={24} />
 
         <h1>Operations studio</h1>
         <p>Please enter your email below</p>

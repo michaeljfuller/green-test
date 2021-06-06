@@ -2,24 +2,25 @@
 @import "/styles/colors";
 
 .root {
-    $size: 1.1rem;
-    $font-size: 0.7rem;
+    $size: 1rem;
     $border-width: 2px;
-    $cursor: pointer;
 
     display: inline-flex;
     position: relative; // To anchor the absolute-positioned check
+    cursor: pointer;
 
     span {
-        font-size: $font-size;
+        color: $grey-dark;
+        font-size: 0.7rem;
         display: inline-flex;
         align-items: center;
-        margin-left: 0.5rem;
+        margin-left: 0.4rem;
+        user-select: none;
     }
 
     input {
         appearance: none;
-        cursor: $cursor;
+        cursor: inherit;
 
         margin: 0;
         height: $size;
@@ -49,16 +50,15 @@
                 // Tick character
                 content: '\2714';
                 color: white;
-                font-size: $font-size;
+                font-size: 0.55rem;
                 text-align: center;
                 font-style: italic;
                 // Position to .root
                 position: absolute;
                 width: $size;
-                top: math.div($border-width, 2);
-                left: math.div($border-width, -2);
+                top: 2px;
+                left: -1px;
                 display: block;
-                cursor: $cursor;
             }
         }
     }
