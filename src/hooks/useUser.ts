@@ -26,7 +26,10 @@ export function useUser(): UseUserResponse {
         });
     };
 
-    const { data, error } = useSWR('/api/auth/user', fetcher);
+    const { data, error } = useSWR('/api/auth/user', fetcher, {
+        // https://swr.vercel.app/docs/options
+        revalidateOnFocus: false,
+    });
     const user: MagicUserMetadata|undefined = data?.user;
 
     return {
