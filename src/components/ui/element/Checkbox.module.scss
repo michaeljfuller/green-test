@@ -28,9 +28,22 @@
         border: $border-width solid $grey-faint;
         border-radius: 4px;
 
+        &:disabled {
+            border-color: $grey-light;
+            background-color: $grey-faint;
+        }
+
         &:checked {
             border-color: $blue;
             background-color: $blue-light;
+
+            &:disabled {
+                border-color: $grey-light;
+                background-color: $grey-faint;
+                &::before {
+                    color: $grey;
+                }
+            }
 
             &::before { // Checkmark
                 // Tick character
