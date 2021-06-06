@@ -37,7 +37,7 @@ export function SignInForm({
         </div>
 
         <div className={css.remember}>
-            <Checkbox label="Remember this device" name="remember" disabled={disabled} />
+            <Checkbox label="Remember this device" name="remember" disabled={disabled} defaultChecked />
         </div>
 
         <button type="submit" className={css.submit} disabled={disabled || !validEmail}>Sign In</button>
